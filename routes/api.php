@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/send', 'EmailController@send');
+Route::get('/', function () {
+    return response()->json(['message' => 'online']);
+});
 
