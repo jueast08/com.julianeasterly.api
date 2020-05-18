@@ -30,11 +30,12 @@ class EmailController extends Controller
                     ->subject('Your Message to Julian Easterly');
         });
 
-        Mail::send('emails.contact', $data, function ($message) use ($data)
+        
+        Mail::send('emails.contactadmin', $data, function ($message) use ($data)
         {
-            $message->from($data['email'], $data['name']);
+            $message->from('contact@julianeasterly.com', 'JulianEasterly.com');
             $message->to('julianeasterly@gmail.com', 'Admin')
-                    ->subject($data['name'].' sent you an email from JulianEasterly.com');
+                    ->subject($data['name'].'<'.$data['email'].'> sent you an email from JulianEasterly.com');
         });
 
         return response()->json(['message' => 'Request completed']);
