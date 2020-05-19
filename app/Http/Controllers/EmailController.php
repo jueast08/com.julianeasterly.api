@@ -38,6 +38,7 @@ class EmailController extends Controller
                     ->subject($data['name'].'<'.$data['email'].'> sent you an email from JulianEasterly.com');
         });
 
-        return response()->json(['message' => 'Request completed']);
+        
+            return response()->json(['Message' => 'Success'], 200); //Make sure your response is there.
     }
 }
